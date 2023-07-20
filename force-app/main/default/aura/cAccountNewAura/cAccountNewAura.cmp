@@ -1,0 +1,5 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable" access="global">
+    
+    <c:cAccountNew></c:cAccountNew>
+
+</aura:component>	

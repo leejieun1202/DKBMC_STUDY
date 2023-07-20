@@ -1,0 +1,125 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small">
+        <div class="slds-modal__container">
+            <div class="slds-clearfix">
+                <lightning-button-icon icon-name="utility:close" variant="bare" class="slds-float_right"></lightning-button-icon>
+            </div>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">New cAccount</h1>
+            </div>
+            
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-clearfix">
+                    <p class="slds-float_right">= Required Information</p><abbr records-baserecordform_baserecordform class="slds-required slds-float_right">*</abbr>
+                </div>
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <span class="slds-truncate slds-p-horizontal_small">Account Information</span>
+                    </h3>
+                    <lightning-record-edit-form object-api-name="cAccount__c">
+                        <lightning-messages> </lightning-messages>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-output-field field-name="OwnerId" class="slds-col slds-size_1-of-2"> </lightning-output-field>
+                            <lightning-input-field field-name="cRating__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="Name" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cPhone__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="Parent_Account__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cFax__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="cAccountNumber__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cWebsite__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="cAccountSite__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cTicker_Symbol__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="cType__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cOwnership__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="cIndustry__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cNumberOfEmployees__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <lightning-input-field field-name="cAnnualRevenue__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                            <lightning-input-field field-name="cSic__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        </div>
+                    </lightning-record-edit-form>
+                    </div>
+                    <div class="slds-section slds-is-open">
+                        <h3 class="slds-section__title slds-theme_shade">
+                            <span class="slds-truncate slds-p-horizontal_small">Address Information</span>
+                        </h3>
+                        <fieldset class="slds-form-element slds-form-element_compound slds-form-element_address">
+                            <legend class="slds-form-element__legend slds-form-element__label">Billing Address</legend>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-size_1-of-1">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="form-element-id-01">Billing Street</label>
+                                            <div class="slds-form-element__control">
+                                                <textarea id="form-element-id-01" required="" placeholder="Placeholder text…"
+                                                    class="slds-textarea">525 S. Lexington Ave</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element__row">
+                                    <div class="slds-size_4-of-6">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="form-element-id-02">Billing City</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="form-element-id-02" required="" class="slds-input" value="Burlington" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-size_2-of-6">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="form-element-id-03">Billing State/Province</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="form-element-id-03" required="" class="slds-input" value="NC" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element__row">
+                                    <div class="slds-size_4-of-6">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="form-element-id-04">Billing Zip/Postal Code</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="form-element-id-04" required="" class="slds-input" value="27215" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-size_2-of-6">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="form-element-id-05">Billing Country</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="form-element-id-05" required="" class="slds-input" value="USA" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        </div>
+                </div>
+            
+            
+                
+            <div class="slds-modal__footer">
+                <lightning-button label="Cancel" class="slds-m-left_x-small"></lightning-button>
+                <lightning-button label="Save & New" class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Save" class="slds-m-left_x-small"></lightning-button>
+            </div>
+
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>
