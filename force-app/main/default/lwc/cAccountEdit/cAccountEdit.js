@@ -1,11 +1,11 @@
-import {LightningElement, api, wire} from 'lwc';
+import { LightningElement, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from "lightning/navigation";
 
-export default class CAccountNew extends NavigationMixin(LightningElement)  {
+export default class CAccountEdit extends NavigationMixin(LightningElement) {
+
     @api recordId;
     @api cAccount__c;
-    
 
     saveAndNew = false;
 
@@ -43,14 +43,7 @@ export default class CAccountNew extends NavigationMixin(LightningElement)  {
                 },
             });
         } else{
-            this[NavigationMixin.Navigate]({
-                type: 'standard__recordPage',
-                attributes: {
-                    recordId: event.detail.id,
-                    objectApiName: 'cAccount__c',
-                    actionName: 'view'
-                },
-            });
+            this.handleDialogClose();
         }
         
         this.showToast(event.detail.fields.Name.value);
@@ -59,7 +52,7 @@ export default class CAccountNew extends NavigationMixin(LightningElement)  {
 
     showToast(recordName){
         const event = new ShowToastEvent({
-            title: 'Account "' + recordName + '" was created',
+            title: 'Account "' + recordName + '" was saved',
             variant: 'success'
         });
         this.dispatchEvent(event);
@@ -78,8 +71,4 @@ export default class CAccountNew extends NavigationMixin(LightningElement)  {
             },
         });
     }
-
-    
-
-    
 }

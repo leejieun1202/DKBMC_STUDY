@@ -1,6 +1,6 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <lightning-record-edit-form object-api-name="cAccount__c" record-id={recordId}  onsuccess={handleSuccess}>
+    <lightning-record-edit-form object-api-name="cAccount__c" record-id={recordId} onsuccess={handleSuccess}>
     <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small">
         <div class="slds-modal__container">
             <div class="slds-clearfix">
@@ -142,7 +142,7 @@
             <div class="slds-modal__footer">
                 <lightning-button label="Cancel" onclick={handleDialogClose} class="slds-m-left_x-small"></lightning-button>
                 <lightning-button type="submit" onclick={handleSaveAndNew} label="Save & New" class="slds-m-left_x-small"></lightning-button>
-                <lightning-button type="submit" variant="brand" onclick={handleSave} label="Save" class="slds-m-left_x-small"></lightning-button>
+                <lightning-button type="submit" onclick={handleSave} variant="brand" label="Save" class="slds-m-left_x-small"></lightning-button>
             </div>
         </div>
     </section>

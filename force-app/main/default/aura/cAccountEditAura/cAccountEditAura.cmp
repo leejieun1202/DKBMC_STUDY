@@ -1,5 +1,5 @@
 <aura:component implements="force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable" access="global">
     
     <aura:attribute name="recordId" type="String" />
-    <c:cAccountNew recordId="{!v.recordId}"></c:cAccountNew>
+    <c:cAccountEdit recordId="{!v.recordId}"></c:cAccountEdit>
 </aura:component>	
