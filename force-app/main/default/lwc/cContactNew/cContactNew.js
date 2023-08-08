@@ -1,22 +1,10 @@
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from "lightning/navigation";
-import { getFieldValue, getRecord } from 'lightning/uiRecordApi';
-import NAME_FIELD from '@salesforce/schema/cAccount__c.Name';
 
-const fields = [NAME_FIELD];
-
-export default class CAccountEdit extends NavigationMixin(LightningElement) {
-
+export default class CContactNew extends NavigationMixin(LightningElement) {
     @api recordId;
-    @api cAccount__c;
-    @wire(getRecord, { recordId: '$recordId', fields })
-    cAccount__c;
-
-    //Edit 폼 상단에 AccountName 띄우기
-    get name(){
-        return getFieldValue(this.cAccount__c.data, NAME_FIELD);
-    }
+    @api cContact__c;
 
     saveAndNew = false;
 
@@ -30,16 +18,15 @@ export default class CAccountEdit extends NavigationMixin(LightningElement) {
 
     //필드 리셋
     handleReset() {
-    const inputFields = this.template.querySelectorAll(
-        'lightning-input-field'
-    );
-    if (inputFields) {
-            inputFields.forEach(field => {
-            field.reset();
-            });
-        }
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+        if (inputFields) {
+                inputFields.forEach(field => {
+                field.reset();
+                });
+            }
     }
-
 
     //onsuccess로 save와 save&new 구분, 등록 toast 띄워주기
     handleSuccess(event){
@@ -49,7 +36,7 @@ export default class CAccountEdit extends NavigationMixin(LightningElement) {
                 type: 'standard__recordPage',
                 attributes: {
                     recordId: event.detail.id,
-                    objectApiName: 'cAccount__c',
+                    objectApiName: 'cContact__c',
                     actionName: 'new'
                 },
             });
@@ -58,7 +45,7 @@ export default class CAccountEdit extends NavigationMixin(LightningElement) {
                 type: 'standard__recordPage',
                 attributes: {
                     recordId: event.detail.id,
-                    objectApiName: 'cAccount__c',
+                    objectApiName: 'cContact__c',
                     actionName: 'view'
                 },
             });
@@ -70,23 +57,24 @@ export default class CAccountEdit extends NavigationMixin(LightningElement) {
 
     showToast(recordName){
         const event = new ShowToastEvent({
-            title: 'Account "' + recordName + '" was saved',
+            title: 'Contact "' + recordName + '" was created',
             variant: 'success'
         });
         this.dispatchEvent(event);
     }
-    
+
     //cancle과 X 눌렀을 때 new 폼 닫기 
     handleDialogClose(){
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
-                objectApiName: 'cAccount__c',
+                objectApiName: 'cContact__c',
                 actionName: 'list'
             },
             state: {
-                filterName: '00B5i00000QYMX8EAP'
+                filterName: '00B5i00000QYNNJEA5'
             },
         });
     }
+
 }

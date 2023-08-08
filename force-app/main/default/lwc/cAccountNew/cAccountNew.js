@@ -1,11 +1,10 @@
-import {LightningElement, api, wire} from 'lwc';
+import {LightningElement, api} from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from "lightning/navigation";
 
 export default class CAccountNew extends NavigationMixin(LightningElement)  {
     @api recordId;
     @api cAccount__c;
-    
 
     saveAndNew = false;
 
@@ -19,14 +18,14 @@ export default class CAccountNew extends NavigationMixin(LightningElement)  {
 
     //필드 리셋
     handleReset() {
-    const inputFields = this.template.querySelectorAll(
-        'lightning-input-field'
-    );
-    if (inputFields) {
-            inputFields.forEach(field => {
-            field.reset();
-            });
-        }
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+        if (inputFields) {
+                inputFields.forEach(field => {
+                field.reset();
+                });
+            }
     }
 
 

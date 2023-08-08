@@ -1,0 +1,94 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <article class="slds-card slds-card_boundary slds-is-absolute slds-template__container">
+        <article class="slds-card">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="custom:custom56" title="custom56" size="small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <nav role="navigation" aria-label="Breadcrumbs">
+                                                <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                                                    <li class="slds-breadcrumb__item">
+                                                        <a onclick={navTocAccount}>cAccounts</a>
+                                                    </li>
+                                                    <li class="slds-breadcrumb__item">
+                                                        <a onclick={navTocAccountRecord}>{name}</a>
+                                                    </li>
+                                                </ol>
+                                            </nav>
+                                            <span class="slds-page-header__title slds-truncate"
+                                                title="Recently Viewed">cContact</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-page-header__col-actions">
+                        <div class="slds-page-header__controls">
+                            <div class="slds-page-header__control">
+                                <ul class="slds-button-group-list">
+                                    <li>
+                                        <button class="slds-button slds-button_neutral" data-msg={recordId} onclick={newcContact}>New</button>
+                                    </li>
+                                    <li>
+                                        <button class="slds-button slds-button_neutral">Add to Campaign</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-meta">
+                        <p class="slds-page-header__meta-text">{count.data} items • Updated a few seconds ago</p>
+                    </div>
+                    <div class="slds-page-header__col-controls">
+                        <div class="slds-page-header__controls">
+                            <div class="slds-page-header__control">
+                                <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                                    <button class="slds-button slds-button_icon slds-button_icon-more"
+                                        aria-haspopup="true" aria-expanded="false" title="List View Controls">
+                                            <lightning-button-icon icon-name="utility:settings" variant="bare" aria-hidden="true"></lightning-button-icon>
+                                            <lightning-button-icon icon-name="utility:down" variant="bare" size="x-small" aria-hidden="true"></lightning-button-icon>
+                                        <span class="slds-assistive-text">List View Controls</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="slds-page-header__control">
+                                <lightning-button-icon icon-name="utility:refresh" variant="border-filled" onclick={handelRefresh}></lightning-button-icon>
+                            </div>
+                            <div class="slds-page-header__control">
+                                <ul class="slds-button-group-list">
+                                    <li>
+                                        <lightning-button-icon icon-name="utility:filterList" variant="border-filled"></lightning-button-icon>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+            <template if:true={contactList}>
+                <lightning-datatable
+                        key-field="id"
+                        data={contactList}
+                        show-row-number-column
+                        columns={columns}
+                        onrowaction={handleRowAction}
+                        default-sort-direction={defaultSortDirection}
+                        sorted-direction={sortDirection}
+                        sorted-by={sortedBy}
+                        onsort={onHandleSort}>
+                </lightning-datatable>
+            </template>
+    </article>
+</template>
