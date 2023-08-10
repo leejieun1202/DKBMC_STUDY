@@ -1,0 +1,14 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="cCase__c">
+        <lightning-quick-action-panel header="Close cCase">
+            <lightning-input-field field-name="Status__c" value={closedDefault} disabled={closedDefault}></lightning-input-field>
+            <lightning-input-field field-name="Case_Reason__c"></lightning-input-field>
+            <lightning-input-field field-name="Internal_Comments__c"></lightning-input-field>
+            <div slot="footer">
+                <lightning-button type="submit" variant="brand" label="Close" onclick={closeModal}></lightning-button>
+            </div>
+        </lightning-quick-action-panel>
+    </lightning-record-edit-form>
+
+</template>
