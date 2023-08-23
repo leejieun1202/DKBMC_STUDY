@@ -4,4 +4,4 @@
     <aura:attribute name="recordId" type="String" />
     <c:cAccountViewAll recordId="{!v.recordId}"/>
 
-</aura:component>	
+</aura:component>

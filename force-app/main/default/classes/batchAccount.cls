@@ -9,7 +9,7 @@ public class batchAccount implements Database.Batchable<sObject>{
     public Database.QueryLocator start(Database.BatchableContext bc){
         String query = 'SELECT Id, Name, cAccountID__c,ParentId, Parent.cAccountID__c, Type, BillingStreet,BillingCity, BillingState, BillingPostalCode, BillingCountry, BillingLatitude, BillingLongitude,BillingAddress, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry, ShippingAddress, Phone, Fax, AccountNumber, Website, Sic, Industry, AnnualRevenue, NumberOfEmployees, Ownership, TickerSymbol, Description, Rating, Site, OwnerId, CreatedDate, CreatedById, LastModifiedDate,LastModifiedById, CustomerPriority__c, SLA__c, Active__c, NumberofLocations__c, UpsellOpportunity__c, SLASerialNumber__c, SLAExpirationDate__c FROM Account';
         return Database.getQueryLocator(query);
-    } 
+    }
 
     public void execute(Database.BatchableContext bc, List<Account> accList){
 

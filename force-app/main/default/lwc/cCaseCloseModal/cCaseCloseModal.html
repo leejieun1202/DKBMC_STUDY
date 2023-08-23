@@ -1,14 +1,28 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <lightning-record-edit-form record-id={recordId} object-api-name="cCase__c">
-        <lightning-quick-action-panel header="Close cCase">
-            <lightning-input-field field-name="Status__c" value={closedDefault} disabled={closedDefault}></lightning-input-field>
-            <lightning-input-field field-name="Case_Reason__c"></lightning-input-field>
-            <lightning-input-field field-name="Internal_Comments__c"></lightning-input-field>
-            <div slot="footer">
-                <lightning-button type="submit" variant="brand" label="Close" onclick={closeModal}></lightning-button>
+    <lightning-record-edit-form record-id={recordId} object-api-name="cCase__c" onsuccess={closeModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <div class="slds-clearfix">
+                    <lightning-button-icon icon-name="utility:close" variant="bare-inverse" onclick={handleDialogClose}
+                        class="slds-button__icon slds-modal__close slds-float_right slds-button__icon-large"></lightning-button-icon>
+                </div>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Close cCase</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input-field field-name="Status__c" value={closedDefault}
+                        disabled={closedDefault}></lightning-input-field>
+                    <lightning-input-field field-name="Case_Reason__c"></lightning-input-field>
+                    <lightning-input-field field-name="Internal_Comments__c"></lightning-input-field>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning-button type="submit" variant="brand" label="Close"></lightning-button>
+                </div>
             </div>
-        </lightning-quick-action-panel>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
     </lightning-record-edit-form>
 
 </template>

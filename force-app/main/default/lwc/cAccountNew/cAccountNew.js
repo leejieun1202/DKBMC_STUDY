@@ -8,10 +8,6 @@ export default class CAccountNew extends NavigationMixin(LightningElement)  {
 
     saveAndNew = false;
 
-    handleSave() {
-        this.saveAndNew = false;
-    }
-
     handleSaveAndNew() {
         this.saveAndNew = true;
     }

@@ -38,55 +38,55 @@ export default class CContactEdit extends NavigationMixin(LightningElement) {
                 field.reset();
                 });
             }
-        }
+    }
     
     
-        //onsuccess로 save와 save&new 구분, 등록 toast 띄워주기
-        handleSuccess(event){
-    
-            if(this.saveAndNew){
-                this[NavigationMixin.Navigate]({
-                    type: 'standard__recordPage',
-                    attributes: {
-                        recordId: event.detail.id,
-                        objectApiName: 'cContact__c',
-                        actionName: 'new'
-                    },
-                });
-            } else{
-                this[NavigationMixin.Navigate]({
-                    type: 'standard__recordPage',
-                    attributes: {
-                        recordId: event.detail.id,
-                        objectApiName: 'cContact__c',
-                        actionName: 'view'
-                    },
-                });
-            }
-            
-            this.showToast(event.detail.fields.Name.value);
-            this.handleReset();
-        }
-    
-        showToast(recordName){
-            const event = new ShowToastEvent({
-                title: 'Contact "' + recordName + '" was saved',
-                variant: 'success'
+    //onsuccess로 save와 save&new 구분, 등록 toast 띄워주기
+    handleSuccess(event){
+
+        if(this.saveAndNew){
+            this[NavigationMixin.Navigate]({
+                type: 'standard__recordPage',
+                attributes: {
+                    recordId: event.detail.id,
+                    objectApiName: 'cContact__c',
+                    actionName: 'new'
+                },
             });
-            this.dispatchEvent(event);
+        } else{
+            this[NavigationMixin.Navigate]({
+                type: 'standard__recordPage',
+                attributes: {
+                    recordId: event.detail.id,
+                    objectApiName: 'cContact__c',
+                    actionName: 'view'
+                },
+            });
         }
         
-        //cancle과 X 눌렀을 때 new 폼 닫기 
-        handleDialogClose(){
-            this[NavigationMixin.Navigate]({
-                type: 'standard__objectPage',
-                attributes: {
-                    objectApiName: 'cContact__c',
-                    actionName: 'list'
-                },
-                state: {
-                    filterName: '00B5i00000QYNNJEA5'
-                },
-            });
-        }
+        this.showToast(event.detail.fields.Name.value);
+        this.handleReset();
+    }
+
+    showToast(recordName){
+        const event = new ShowToastEvent({
+            title: 'Contact "' + recordName + '" was saved',
+            variant: 'success'
+        });
+        this.dispatchEvent(event);
+    }
+    
+    //cancle과 X 눌렀을 때 new 폼 닫기 
+    handleDialogClose(){
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                objectApiName: 'cContact__c',
+                actionName: 'list'
+            },
+            state: {
+                filterName: '00B5i00000QYNNJEA5'
+            },
+        });
+    }
 }

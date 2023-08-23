@@ -36,7 +36,7 @@
                             <div class="slds-page-header__control">
                                 <ul class="slds-button-group-list">
                                     <li>
-                                        <button class="slds-button slds-button_neutral">New</button>
+                                        <button onclick={navigateToNewCase} class="slds-button slds-button_neutral">New</button>
                                     </li>
                                     <li>
                                         <button class="slds-button slds-button_neutral">Change Owner</button>
@@ -87,10 +87,14 @@
                     oncellchange={handleCellChange}
                     onsave={handleSave}
                     oncancel={handleCancel}
+                    
                     show-row-number-column 
                     hide-checkbox-column
                     >
                 </c-custom-datatable>
+            </template>
+            <template if:true={isShowModal}>
+                <c-c-case-new record-id={recordId}></c-c-case-new>
             </template>
     </article>
 </template>

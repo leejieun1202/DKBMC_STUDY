@@ -2,4 +2,4 @@
     
     <aura:attribute name="recordId" type="String" />
     <c:cAccountEdit recordId="{!v.recordId}"></c:cAccountEdit>
-</aura:component>	
+</aura:component>

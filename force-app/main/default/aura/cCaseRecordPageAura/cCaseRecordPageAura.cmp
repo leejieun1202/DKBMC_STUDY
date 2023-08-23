@@ -1,0 +1,8 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="String" />
+    <c:cCaseRecordPageAura recordId="{!v.recordId}"></c:cCaseRecordPageAura>>
+
+
+</aura:component>

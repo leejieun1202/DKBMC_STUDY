@@ -164,9 +164,4 @@ trigger cAccountTrigger on cAccount__c (after insert, after update, before delet
             delete deleteList;
         }
     }
-}    
-            
-     
-     
-            
-        
+}

@@ -14,6 +14,7 @@ public class batchCase implements Database.Batchable<sObject> {
 
 
         for(Case cas : casList){
+            // if(cas.cCaseID__c == null)
                 cCases.add(new cCase__c(Id = cas.cCaseID__c,
                                         CaseID__c = cas.Id,
                                         ContactId__c = cas.Contact.cContactID__c,
@@ -37,9 +38,7 @@ public class batchCase implements Database.Batchable<sObject> {
                                         Internal_Comments__c = cas.Comments
                                         ));
         }
-        if(cCases.size()>0){
-            upsert cCases;
-        }
+        upsert cCases;
 
         for(cCase__c a : cCases){
             cases.add(new Case(Id = a.CaseID__c,

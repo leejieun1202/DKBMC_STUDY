@@ -40,14 +40,18 @@ export default class CAccountViewAll extends NavigationMixin(LightningElement) {
     }
 
     connectedCallback(){
+        // console.log('recordId = ', this.recordId);
         this.callList();
     }
 
     callList(){
         getContact({accountId : this.recordId})
         .then((data) => {
+            // console.log('data', data);
+            // this.contactList = data;
             this.contactList = data.map(row=>{
                 return{...row, nameUrl: '/' + row.Id, name:row.Name }})
+            // console.log('contactList = ',this.contactList);
             this.error = undefined;
         })
         .catch((error) => {
@@ -63,6 +67,8 @@ export default class CAccountViewAll extends NavigationMixin(LightningElement) {
 
     //레코드별 수정, 삭제
     handleRowAction(event) {
+        // console.log('event',event);
+        // console.log('row',event.detail.row);
         const actionName = event.detail.action.name;
         const row = event.detail.row;
        
@@ -88,6 +94,7 @@ export default class CAccountViewAll extends NavigationMixin(LightningElement) {
                 actionName: 'edit'
             }
         });
+        this.callList();
     }
 
     // 레코드 삭제
@@ -99,11 +106,13 @@ export default class CAccountViewAll extends NavigationMixin(LightningElement) {
                 '',
                 'success'
             );
+            //this.dispatchEvent(new RefreshEvent());
             this.callList();
         })
         
         .catch((error) => {
-            console.log('error ',error.body.message);
+            console.log('error ',error);
+            // this.showToast('Something went wrong', error.body.message, 'error');
         })
     }
 

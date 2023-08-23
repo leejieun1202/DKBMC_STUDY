@@ -1,0 +1,81 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-record-edit-form object-api-name="cCase__c" record-id={recordId} onsuccess={handleSuccess}>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_small">
+        <div class="slds-modal__container">
+            <div class="slds-clearfix">
+                <lightning-button-icon icon-name="utility:close" variant="bare-inverse" onclick={handleDialogClose} class="slds-button__icon slds-modal__close slds-float_right slds-button__icon-large"></lightning-button-icon>
+            </div>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Edit </h1>
+            </div>
+            
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-clearfix">
+                    <p class="slds-float_right">= Required Information</p><abbr records-baserecordform_baserecordform class="slds-required slds-float_right">*</abbr>
+                </div>
+                <div class="slds-section slds-is-open slds-p-top_x-small slds-p-bottom_medium">
+                    <div class="slds-grid slds-gutters">
+                        <lightning-output-field field-name="OwnerId" class="slds-col slds-size_1-of-2"> </lightning-output-field>
+                        <lightning-input-field field-name="Status__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-output-field field-name="Name" class="slds-col slds-size_1-of-2"> </lightning-output-field>
+                        <lightning-input-field field-name="Priority__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="ContactId__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-output-field field-name="Contact_Phone__c" class="slds-col slds-size_1-of-2"> </lightning-output-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="AccountId__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-output-field field-name="Contact_Email__c" class="slds-col slds-size_1-of-2"> </lightning-output-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Type__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-input-field field-name="Case_Origin__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Case_Reason__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="CaseID__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-section slds-is-open slds-p-top_x-small slds-p-bottom_medium">
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Web_Email__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-input-field field-name="Web_Company__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Web_Name__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-input-field field-name="Web_Phone__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-section slds-is-open slds-p-top_x-small slds-p-bottom_medium">
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Product__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-input-field field-name="Engineering_Req_Number__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <lightning-input-field field-name="Potential_Liability__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                        <lightning-input-field field-name="SLA_Violation__c" class="slds-col slds-size_1-of-2"> </lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-section slds-is-open slds-p-top_x-small slds-p-bottom_medium">
+                    <lightning-input-field field-name="Subject__c"> </lightning-input-field>
+                    <lightning-input-field field-name="Description__c"> </lightning-input-field>
+                    <lightning-input-field field-name="Internal_Comments__c"> </lightning-input-field>
+                </div>
+            </div>
+            
+            <div class="slds-modal__footer">
+                <lightning-button label="Cancel" onclick={handleDialogClose} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button type="submit" onclick={handleSaveAndNew} label="Save & New" class="slds-m-left_x-small"></lightning-button>
+                <lightning-button type="submit" variant="brand" label="Save" class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</lightning-record-edit-form>
+</template>

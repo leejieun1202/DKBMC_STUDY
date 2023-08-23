@@ -4,7 +4,6 @@ import { NavigationMixin } from "lightning/navigation";
 
 export default class CContactNew extends NavigationMixin(LightningElement) {
     @api recordId;
-    @api cContact__c;
 
     saveAndNew = false;
 

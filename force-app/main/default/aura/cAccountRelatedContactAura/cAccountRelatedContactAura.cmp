@@ -2,8 +2,7 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="recordId" type="String" />
-
     <c:cAccountRelatedContact recordId="{!v.recordId}"></c:cAccountRelatedContact>
 
 
-</aura:component>	
+</aura:component>

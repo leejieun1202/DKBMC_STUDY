@@ -1,6 +1,7 @@
 import { LightningElement, api, track } from 'lwc';
 import { NavigationMixin } from "lightning/navigation";
 
+
 export default class CCaseCloseModal extends NavigationMixin(LightningElement) {
     @api recordId;
     @track closedDefault;
@@ -9,6 +10,7 @@ export default class CCaseCloseModal extends NavigationMixin(LightningElement) {
         this.closedDefault = 'Closed';
     }
 
+    //status Closed로 변경
     closeModal(){
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
@@ -18,5 +20,10 @@ export default class CCaseCloseModal extends NavigationMixin(LightningElement) {
                 actionName: 'view'
             },
         });
+    }
+
+    //modal 닫기
+    handleDialogClose(){
+        this.closeModal();
     }
 }
